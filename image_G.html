@@ -4,40 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Image Grid Gallery</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f0f0f0;
-        }
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-            width: 80%;
-            max-width: 600px;
-            transition: all 0.5s ease-in-out;
-        }
-        .thumbnail {
-            width: 100%;
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
-        .thumbnail:hover {
-            transform: scale(1.05);
-        }
-        .expanded {
-            grid-column: 1 / -1;
-            width: 100%;
-            height: auto;
-        }
-        .hidden {
-            display: none;
-        }
-    </style>
+    <link rel="stylesheet" href="style_G.css">
 </head>
 <body>
     <div class="gallery" id="gallery">
@@ -48,21 +15,6 @@
         <img src="img\balloon.jpg" class="thumbnail" onclick="expandImage(this)">
         <img src="img\island.jpg" class="thumbnail" onclick="expandImage(this)">
     </div>
-    <script>
-        function expandImage(img) {
-            const gallery = document.getElementById("gallery");
-            const thumbnails = document.querySelectorAll(".thumbnail");
-            
-            if (img.classList.contains("expanded")) {
-                img.classList.remove("expanded");
-                thumbnails.forEach(thumbnail => thumbnail.classList.remove("hidden"));
-            } else {
-                thumbnails.forEach(thumbnail => {
-                    if (thumbnail !== img) thumbnail.classList.add("hidden");
-                });
-                img.classList.add("expanded");
-            }
-        }
-    </script>
+    <script src="app_G.js"></script>
 </body>
 </html>
