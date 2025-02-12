@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <script>
+        //  hosting 
+     console.log(name);
+     var name = 'Hasan';
+
+     // HOF
+     operate = (a,b,operation)=> {
+                result = operation(a,b);
+                return result;
+     }
+     add = (a,b) => {
+         return a+b;
+     }
+     mul = (a,b) => {
+         return a*b;
+     }
+
+     let a = operate(5,5,add);
+     let m = operate(5,5,mul);
+     console.log('addition of 5,5 is ${a} and multiplication is ${m}');
+
+     // closure
+     function counter() {
+            let c = 0 ;
+            function count(){
+                c += 1;
+                console.log(c);
+            }
+            return count;
+        }
+        const incrementCounter = counter();
+
+        incrementCounter();
+        incrementCounter();
+   </script>
+
+
+</body>
+</html>
