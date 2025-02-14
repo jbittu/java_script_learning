@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercise 12</title>
+    <style>
+        #parent {
+            padding: 20px;
+            background-color: lightgray;
+            border: 2px solid black;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            padding: 10px;
+            cursor: pointer;
+            background-color: lightblue;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="parent">
+        <h1>EEvent Bubbling</h1>
+        <button id="child">Click Child Button</button>
+    </div>
+
+    <h3>Event Delegation List</h3>
+    <ul id="list">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ul>
+
+    <button id="thisButton">Click Me (this keyword)</button>
+
+    <script>
+        // 1. Event Bubbling
+        document.getElementById("parent").addEventListener("click", function() {
+            console.log("Parent Div Clicked!");
+        });
+
+        document.getElementById("child").addEventListener("click", function(event) {
+            console.log("Child Button Clicked!");
+            event.stopPropagation(); 
+        });
+
+        // 2. Event Delegation
+        document.getElementById("list").addEventListener("click", function(event) {
+            if (event.target.tagName === "LI") {
+                console.log("List item clicked:", event.target.textContent);
+            }
+        });
+
+        // 3. Using this
+        document.getElementById("thisButton").addEventListener("click", function() {
+            console.log("Button text:", this.textContent); 
+        });
+    </script>
+
+</body>
+</html>

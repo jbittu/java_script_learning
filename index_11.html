@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const dprom = new Promise((resolve , reject)=>{
+            setTimeout(() => {
+                resolve("promise is resolved");
+            }, 2000);
+        })
+
+        async function fetchd() {
+            try{
+                const result  = await fetch('https://nwvnuweov.com');
+                const data = await result.json();
+                console.log(data);
+            }
+            catch(e){
+                console.log(e);
+            }
+        fetchd();
+        }
+    </script>
+</body>
+</html>
